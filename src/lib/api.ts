@@ -6,7 +6,7 @@ import {
   LaborLine,
   PartsLine,
   ROStatus,
-} from "/types/shop";
+} from "../types/shop";
 import { generateRONumber } from "./calculations";
 
 // ==================== CUSTOMERS ====================
