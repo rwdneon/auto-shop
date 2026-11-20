@@ -1,4 +1,4 @@
-import { LaborLine, PartsLine, ROTotals } from "@/types/shop";
+import { LaborLine, PartsLine, ROTotals } from "../types/shop";
 
 export function calculateROTotals(
   laborLines: LaborLine[] = [],
