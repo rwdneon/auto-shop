@@ -52,4 +52,10 @@ function RepairOrderView() {
             <h1 className="text-2xl font-bold text-gray-900 mt-1">{ro.ro_number}</h1>
             <p className="text-sm text-gray-500">
               {ro.customers?.name || "No customer"} ·{" "}
-              {[ro.vehicles?.year, ro.vehicles?.make, ro
+              {[ro.vehicles?.year, ro.vehicles?.make, ro.vehicles?.model]
+                .filter(Boolean)
+                .join(" ") || "No vehicle"}
+            </p>
+          </div>
+          <span className="text-sm px-3 py-1 rounded-full font-medium bg-gray-100 text-gray-800">
+            {ro.status.replace("_", "
