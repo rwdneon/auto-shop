@@ -45,15 +45,15 @@ export default function InventoryPage() {
     <div className="grid grid-cols-3 gap-2 mb-2">
       <div>
         <label className="block text-sm font-medium">Quantity</label>
-        <input className="border p-2 w-full" type="number" placeholder="Qty" value={form.quantity_on_hand} onChange={e => setForm({...form, quantity_on_hand: e.target.value})} />
+        <input className="border p-2 w-full" type="number" placeholder="Qty" value={form.quantity_on_hand} onChange={e => setForm({...form, quantity_on_hand: Number(e.target.value)})} />
       </div>
       <div>
         <label className="block text-sm font-medium">Cost</label>
-        <input className="border p-2 w-full" type="number" step="0.01" placeholder="Cost" value={form.cost_price} onChange={e => setForm({...form, cost_price: e.target.value})} />
+        <input className="border p-2 w-full" type="number" step="0.01" placeholder="Cost" value={form.cost_price} onChange={e => setForm({...form, cost_price: Number(e.target.value)})} />
       </div>
       <div>
         <label className="block text-sm font-medium">Sell Price</label>
-        <input className="border p-2 w-full" type="number" step="0.01" placeholder="Sell" value={form.sell_price} onChange={e => setForm({...form, sell_price: e.target.value})} />
+        <input className="border p-2 w-full" type="number" step="0.01" placeholder="Sell" value={form.sell_price} onChange={e => setForm({...form, sell_price: Number(e.target.value)})} />
       </div>
     </div>
     <button className="bg-gray-800 text-white px-4 py-2 rounded" type="submit">Save</button>
