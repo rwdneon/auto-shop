@@ -58,10 +58,9 @@ function round(n: number): number {
   return Math.round(n * 100) / 100;
 }
 
-export function generateRONumber(): string {
-  const year = new Date().getFullYear();
-  const random = Math.floor(Math.random() * 900) + 100;
-  return `RO-${year}-${random}`;
+export function generateRONumber(existingCount: number = 0): string {
+  const next = existingCount + 1;
+  return `RO #${next}`;
 }
 
 export function formatCurrency(amount: number): string {
@@ -69,4 +68,9 @@ export function formatCurrency(amount: number): string {
     style: "currency",
     currency: "USD",
   }).format(amount);
+}
+export function calculateFees(grandTotal: number) {
+  const hazmat = Math.min(grandTotal * 0.01, 20);
+  const shopSupply = Math.min(grandTotal * 0.01, 25);
+  return { hazmat, shopSupply, totalFees: hazmat + shopSupply };
 }
