@@ -19,15 +19,28 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDashboardStats().then(setStats).catch(() => {});
-    getInventory()
-      .then(items => {
-        const total = (items || []).reduce((s, i) => s + (i.quantity_on_hand || 0) * (i.cost_price || 0), 0);
-        setInventoryValue(total);
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
+  getDashboardStats()
+    .then((data) => {
+      setStats({
+        openROs: data.openROs || 0,
+        avgROValue: data.avgROValue || 0,
+        totalGP: data.totalGP || 0,
+        avgGPPerHour: data.avgGPPerHour || 0,
+        totalSales: data.totalSales || 0,
+        gpMargin: data.gpMargin || 0,
+        recentROs: data.recentROs || [],
+      });
+    })
+    .catch(() => {});
+
+  getInventory()
+    .then(items => {
+      const total = (items || []).reduce((s, i) => s + (i.quantity_on_hand || 0) * (i.cost_price || 0), 0);
+      setInventoryValue(total);
+    })
+    .catch(() => {})
+    .finally(() => setLoading(false));
+}, []);
 
   const openROs = stats.recentROs.filter((r: any) =>
     ["estimate", "authorized", "in_progress"].includes(r.status)
