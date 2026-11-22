@@ -54,9 +54,7 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-semibold">Dashboard</h1>
-          <Link href="/repair-orders" className="bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg text-sm font-medium">
-            + New Repair Order
-          </Link>
+          
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-7 gap-4">
