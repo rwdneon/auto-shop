@@ -5,8 +5,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "RO-CKET",
   description: "Repair order and profit tracking",
+  icons: {
+    apple: "/apple-touch-icon.png",
+    icon: "/apple-touch-icon.png",
+  },
 };
-
 export default function RootLayout({
   children,
 }: {
